@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 
 @Builder
 @ToString
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -31,11 +31,7 @@ public class SingularPerson {
     @NotNull
     private String placeOfBirth;
     @NotNull
-    private String address;
-    @NotNull
-    private String postalCode;
-    @NotNull
-    private String city;
+    private Address address;
     @NotNull
     private LocalDateTime start;
     private LocalDateTime end;
@@ -45,4 +41,5 @@ public class SingularPerson {
     private MaritalStatus maritalStatus;
     @NotNull
     private ClientState clientState;
+
 }

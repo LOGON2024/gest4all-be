@@ -64,4 +64,17 @@ public class ClientResource {
         service.deleteCollectivePerson(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PutMapping(value = "/singular_persons/{id}")
+    public ResponseEntity<SingularPerson> updateSingularPerson(@PathVariable Long id, @RequestBody SingularPerson obj) {
+        obj = service.updateSingularPerson(id, obj);
+        return ResponseEntity.ok().body(obj);
+    }
+
+    @PutMapping(value = "/collective_persons/{id}")
+    public ResponseEntity<CollectivePerson> updateSCollectivePerson(@PathVariable Long id, @RequestBody CollectivePerson obj) {
+        obj = service.updateCollectivePerson(id, obj);
+        return ResponseEntity.ok().body(obj);
+    }
+
 }

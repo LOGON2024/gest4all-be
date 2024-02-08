@@ -28,11 +28,7 @@ public class CollectivePerson {
     @NotNull
     private Integer commercialPermanentCertificateCode;
     @NotNull
-    private String address;
-    @NotNull
-    private String postalCode;
-    @NotNull
-    private String city;
+    private Address address;
     @NotNull
     private LocalDateTime start;
     @NotNull

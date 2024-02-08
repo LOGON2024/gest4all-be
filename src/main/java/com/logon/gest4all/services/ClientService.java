@@ -46,8 +46,6 @@ public class ClientService {
                 .nif(obj.getNif())
                 .placeOfBirth(obj.getPlaceOfBirth())
                 .address(obj.getAddress())
-                .postalCode(obj.getPostalCode())
-                .city(obj.getCity())
                 .start(LocalDateTime.now())
                 .deletedState(DeletedState.ACTIVE)
                 .maritalStatus(obj.getMaritalStatus())
@@ -65,8 +63,6 @@ public class ClientService {
                 .name(obj.getName())
                 .nipc(obj.getNipc())
                 .address(obj.getAddress())
-                .postalCode(obj.getPostalCode())
-                .city(obj.getCity())
                 .start(LocalDateTime.now())
                 .commercialPermanentCertificateCode(obj.getCommercialPermanentCertificateCode())
                 .legalRepresentative(obj.getLegalRepresentative())
@@ -87,4 +83,33 @@ public class ClientService {
         collectivePerson.setDeletedState(DeletedState.DELETED);
         collectivePersonRepository.save(collectivePerson);
     }
+
+    public SingularPerson updateSingularPerson(Long id, SingularPerson obj) {
+        SingularPerson singularPerson = findSingularPersonById(id);
+        toUpdateSingularPerson(singularPerson, obj);
+        return singularPersonRepository.save(singularPerson);
+    }
+
+    public CollectivePerson updateCollectivePerson(Long id, CollectivePerson obj) {
+        CollectivePerson collectivePerson = findCollectivePersonById(id);
+        toUpdateCollectivePerson(collectivePerson, obj);
+        return collectivePersonRepository.save(collectivePerson);
+    }
+
+    private void toUpdateSingularPerson(SingularPerson existingSingularPerson, SingularPerson updateSingularPerson) {
+        existingSingularPerson.setName(updateSingularPerson.getName());
+        existingSingularPerson.setNif(updateSingularPerson.getNif());
+        existingSingularPerson.setPlaceOfBirth(updateSingularPerson.getPlaceOfBirth());
+        existingSingularPerson.setAddress(updateSingularPerson.getAddress());
+        existingSingularPerson.setMaritalStatus(updateSingularPerson.getMaritalStatus());
+    }
+
+    private void toUpdateCollectivePerson(CollectivePerson existingCollectivePerson, CollectivePerson updateCollectivePerson) {
+        existingCollectivePerson.setName(updateCollectivePerson.getName());
+        existingCollectivePerson.setNipc(updateCollectivePerson.getNipc());
+        existingCollectivePerson.setCommercialPermanentCertificateCode(updateCollectivePerson.getCommercialPermanentCertificateCode());
+        existingCollectivePerson.setAddress(updateCollectivePerson.getAddress());
+        existingCollectivePerson.setLegalRepresentative(updateCollectivePerson.getLegalRepresentative());
+    }
+
 }
