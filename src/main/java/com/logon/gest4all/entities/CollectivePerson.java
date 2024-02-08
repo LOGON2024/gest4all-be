@@ -30,6 +30,8 @@ public class CollectivePerson {
     @NotNull
     private Address address;
     @NotNull
+    private Contact contact;
+    @NotNull
     private LocalDateTime start;
     @NotNull
     private LocalDateTime end;

@@ -47,6 +47,7 @@ public class ClientService {
                 .nif(obj.getNif())
                 .placeOfBirth(obj.getPlaceOfBirth())
                 .address(obj.getAddress())
+                .contact(obj.getContact())
                 .start(LocalDateTime.now())
                 .deletedState(DeletedState.ACTIVE)
                 .maritalStatus(obj.getMaritalStatus())
@@ -64,6 +65,7 @@ public class ClientService {
                 .name(obj.getName())
                 .nipc(obj.getNipc())
                 .address(obj.getAddress())
+                .contact(obj.getContact())
                 .start(LocalDateTime.now())
                 .commercialPermanentCertificateCode(obj.getCommercialPermanentCertificateCode())
                 .legalRepresentative(obj.getLegalRepresentative())
@@ -102,6 +104,7 @@ public class ClientService {
         existingSingularPerson.setNif(updateSingularPerson.getNif());
         existingSingularPerson.setPlaceOfBirth(updateSingularPerson.getPlaceOfBirth());
         existingSingularPerson.setAddress(updateSingularPerson.getAddress());
+        existingSingularPerson.setContact(updateSingularPerson.getContact());
         existingSingularPerson.setMaritalStatus(updateSingularPerson.getMaritalStatus());
     }
 
@@ -110,6 +113,7 @@ public class ClientService {
         existingCollectivePerson.setNipc(updateCollectivePerson.getNipc());
         existingCollectivePerson.setCommercialPermanentCertificateCode(updateCollectivePerson.getCommercialPermanentCertificateCode());
         existingCollectivePerson.setAddress(updateCollectivePerson.getAddress());
+        existingCollectivePerson.setContact(updateCollectivePerson.getContact());
         existingCollectivePerson.setLegalRepresentative(updateCollectivePerson.getLegalRepresentative());
     }
 

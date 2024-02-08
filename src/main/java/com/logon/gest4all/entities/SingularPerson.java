@@ -32,6 +32,9 @@ public class SingularPerson {
     private String placeOfBirth;
     @NotNull
     private Address address;
+
+    @NotNull
+    private Contact contact;
     @NotNull
     private LocalDateTime start;
     private LocalDateTime end;
