@@ -2,6 +2,7 @@ package com.logon.gest4all.services;
 
 import com.logon.gest4all.entities.CollectivePerson;
 import com.logon.gest4all.entities.SingularPerson;
+import com.logon.gest4all.entities.enums.ClientState;
 import com.logon.gest4all.entities.enums.DeletedState;
 import com.logon.gest4all.repositories.CollectivePersonRepository;
 import com.logon.gest4all.repositories.SingularPersonRepository;
@@ -49,7 +50,7 @@ public class ClientService {
                 .start(LocalDateTime.now())
                 .deletedState(DeletedState.ACTIVE)
                 .maritalStatus(obj.getMaritalStatus())
-                .clientState(obj.getClientState())
+                .clientState(ClientState.CLIENT)
                 .build();
 
         return singularPersonRepository.save(singularPerson);

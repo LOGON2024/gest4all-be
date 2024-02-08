@@ -1,7 +1,7 @@
 package com.logon.gest4all.entities;
 
+import jakarta.persistence.*;
 import lombok.*;
-import org.antlr.v4.runtime.misc.NotNull;
 
 @Builder
 @ToString
@@ -10,7 +10,12 @@ import org.antlr.v4.runtime.misc.NotNull;
 @NoArgsConstructor
 @Getter
 @Setter
+@Entity
+@Table(name = "address")
 public class Address {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String address;
     private String postalCode;
     private String city;
